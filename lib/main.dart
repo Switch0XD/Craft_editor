@@ -94,7 +94,7 @@ class _EditorState extends ConsumerState<Editor> {
                               'content': _controller.text,
                               'base64Content':
                                   base64.encode(utf8.encode(_controller.text)),
-                              'revisionDate': DateTime.now(),
+                              'editDate': DateTime.now(),
                               'editedBy':
                                   ref.watch(customClaimsProvider).value['rank'],
                               'editorName':
@@ -104,11 +104,7 @@ class _EditorState extends ConsumerState<Editor> {
                           if (kDebugMode) {
                             print(
                               {
-                                // 'htmlContent': test,
-                                // 'content': _controller.text,
-                                // 'base64Content':
-                                // base64.encode(utf8.encode(_controller.text)),
-                                'revisionDate': DateTime.now(),
+                                'editDate': DateTime.now(),
                                 'editedBy': ref
                                     .watch(customClaimsProvider)
                                     .value['rank'],
@@ -206,7 +202,7 @@ class _EditorState extends ConsumerState<Editor> {
                     icon: const Icon(Icons.title),
                     tooltip: "Heading",
                     onPressed: () {
-                      _applyTextStyle('# ', '# ');
+                      _applyTextStyle('# ', ' ');
                       _focusNode.requestFocus();
                     },
                   ),
